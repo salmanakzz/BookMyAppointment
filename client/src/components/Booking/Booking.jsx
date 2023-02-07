@@ -85,7 +85,7 @@ export const Booking = () => {
 
   return (
     <div
-      className="absolute top-[50%] left-[70%] translate-y-[-50%] translate-x-[-50%] p-2"
+      className="absolute top-[50%] left-[66%] translate-y-[-50%] translate-x-[-50%] p-2"
       style={{ background: "linear-gradient(45deg, #1f378f, transparent)" }}
     >
       <div className="flex justify-center items-center">
