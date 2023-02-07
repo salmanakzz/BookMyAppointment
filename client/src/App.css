@@ -2,33 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.p-datepicker table td{
-    padding: 0 !important;
+.p-datepicker table td {
+  padding: 0 !important;
 }
 
 .p-datepicker .p-datepicker-header {
-    padding: 0 !important;
+  padding: 0 !important;
+  background: #4f46e5 !important;
 }
 
-.p-datepicker .p-timepicker{
-    padding: 0 !important;
+.p-datepicker .p-timepicker {
+  padding: 0 !important;
 }
 
 .p-datepicker .p-timepicker span {
-    font-size: 1rem !important;
+  font-size: 1rem !important;
 }
 
-.p-calendar-timeonly{
-   width: 215px; 
-   height: 40px;
+.p-calendar-timeonly {
+  width: 200px;
+  height: 40px;
 }
 
-.input-details .p-inputtext{
-    height: 40px;
+.input-details .p-inputtext {
+  height: 40px;
+  color: white !important;
+}
+
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month,
+.p-datepicker-year {
+  color: white !important;
+}
+
+.p-dropdown,
+.input-details .p-inputtext, .p-calendar .p-inputtext , .time-div{
+  background: #4f46e5 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: white !important;
+}
+
+.p-dropdown .p-dropdown-label.p-placeholder,
+.p-dropdown .p-dropdown-trigger, .p-dropdown .p-dropdown-label {
+  color: white !important;
+}
+
+input[type="text"]::placeholder {
+  color: white;
+}
+input[type="tel"]::placeholder {
+  color: white;
+}
+input[type="email"]::placeholder {
+  color: white;
 }

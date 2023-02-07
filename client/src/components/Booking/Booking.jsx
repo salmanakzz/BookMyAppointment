@@ -57,7 +57,7 @@ export const Booking = () => {
       time: time2,
       notes,
     };
-    
+
     bookTime(data).then((res) => {
       console.log(res);
     });
@@ -86,9 +86,11 @@ export const Booking = () => {
   return (
     <div
       className="absolute top-[50%] left-[70%] translate-y-[-50%] translate-x-[-50%] p-2"
-      style={{ background: "linear-gradient(45deg, #1f798f, transparent)" }}
+      style={{ background: "linear-gradient(45deg, #1f378f, transparent)" }}
     >
-      <h1>HELLO, BOOK YOUR APPOINTMENT</h1>
+      <div className="flex justify-center items-center">
+      <h1><b className="text-[1.4rem] text-[white]">HELLO, BOOK YOUR APPOINTMENT</b></h1>
+      </div>
       <div className="flex justify-center">
         <form action="" className="mx-4 mt-2">
           <Dropdown
@@ -172,8 +174,8 @@ export const Booking = () => {
        
         <div className="mt-2 mx-2 ">
           <CalendarForm date={date} setDate={setDate} />
-          <div className="mt-1 mb-1">
-            <span>Set a time : </span>
+          <div className="mt-1 mb-1 time-div">
+            <span className="ml-[15px]">Set a time : </span>
             <Calendar
               value={time}
               onChange={(e) => setTime(e.value)}
