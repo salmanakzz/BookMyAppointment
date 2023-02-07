@@ -9,7 +9,6 @@ export const CalendarForm = ({ date, setDate }) => {
         value={date}
         onChange={(e) => setDate(e.value)}
         inline
-        showWeek
       />
     </div>
   );

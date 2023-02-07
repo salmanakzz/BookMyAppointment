@@ -12,7 +12,9 @@ module.exports = {
     consultancyDep,
     doctor,
     state,
-    date
+    date,
+    time,
+    notes
   ) => {
     return new Promise((resolve, reject) => {
 
@@ -27,14 +29,16 @@ module.exports = {
         consultancyDepartment VARCHAR (25) NOT NULL,
         doctor VARCHAR (25) NOT NULL,
         state VARCHAR (25) NOT NULL,
-        date DATE NOT NULL
+        date DATE NOT NULL,
+        time TIME NOT NULL,
+        notes VARCHAR (50)
       );
 
       ALTER TABLE timeslot
       ADD CONSTRAINT unique_email UNIQUE (email);
 
-      INSERT INTO timeslot (firstname,lastname,email,mobile,location,consultancyDepartment,doctor,state,date)
-      VALUES ('${firstname}','${lastname}','${email}','${phone}','${location}','${consultancyDep}','${doctor}','${state}',DATE '${date}');`
+      INSERT INTO timeslot (firstname,lastname,email,mobile,location,consultancyDepartment,doctor,state,date,time,notes)
+      VALUES ('${firstname}','${lastname}','${email}','${phone}','${location}','${consultancyDep}','${doctor}','${state}',DATE '${date}',TIME '${time}','${notes}');`
 
     client.query(query).then(() => {
         resolve({ status: "ok", timeslotBooked : true })

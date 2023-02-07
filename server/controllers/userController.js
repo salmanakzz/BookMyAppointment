@@ -16,7 +16,9 @@ const bookTime = async (req, res) => {
       consultancyDep,
       doctor,
       state,
-      date
+      date,
+      time,
+      notes
     } = req.body;
     const response = await userHelper.bookingTime(
       firstname,
@@ -27,7 +29,9 @@ const bookTime = async (req, res) => {
       consultancyDep,
       doctor,
       state,
-      date
+      date,
+      time,
+      notes
     );
     res.json(response);
   } catch (error) {

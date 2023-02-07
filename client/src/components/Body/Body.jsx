@@ -1,11 +1,12 @@
 import React from "react";
-import image from "../../assets/images/7566.jpg";
+import image from "../../assets/images/bg.png";
+import { Image } from 'primereact/image';
 import { Booking } from "../Booking/Booking";
 
 export const Body = () => {
   return (
     <div className="flex justify-center items-center">
-      <img src={image} alt="BackgroundImage" width="700" height="700" />
+      <Image src={image} alt="BackgroundImage" width="850" />
       <Booking />
     </div>
   );
