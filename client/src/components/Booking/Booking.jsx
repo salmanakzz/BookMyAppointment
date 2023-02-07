@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { CalendarForm } from "../Calender/Calendar";
 import { bookTime } from "../../api/bookTime";
 import { InputTextarea } from "primereact/inputtextarea";
@@ -6,9 +6,12 @@ import { Calendar } from "primereact/calendar";
 import { Dropdown } from "primereact/dropdown";
 import { SelectButton } from "primereact/selectbutton";
 import { InputText } from "primereact/inputtext";
-
+import { Message } from "primereact/message";
+import { Toast } from 'primereact/toast';
 
 export const Booking = () => {
+  const toast = useRef(null);
+
   const [consultancyDep, setConsultancyDep] = useState("");
   const [doctor, setDoctor] = useState("");
   const [state, seState] = useState("online");
@@ -21,7 +24,12 @@ export const Booking = () => {
   const [time, setTime] = useState("");
   const [notes, setNotes] = useState("");
 
+  const showSuccess = () => {
+    toast.current.show({severity:'success', summary: 'Time Slot Book', detail:'Slot Booked Successfully!', life: 3000});
+}
+
   const onSubmit = () => {
+
     function formatDate(date) {
       var d = new Date(date),
         month = "" + (d.getMonth() + 1),
@@ -34,9 +42,7 @@ export const Booking = () => {
       return [year, month, day].join("-");
     }
 
-    const date2 = new Date(
-      time
-    );
+    const date2 = new Date(time);
 
     const hours = date2.getHours().toString().padStart(2, "0");
     const minutes = date2.getMinutes().toString().padStart(2, "0");
@@ -59,9 +65,12 @@ export const Booking = () => {
     };
 
     bookTime(data).then((res) => {
-      console.log(res);
+      if (res.status === "ok") {
+        showSuccess()
+      }
     });
   };
+
 
   const departments = [
     { name: "department1" },
@@ -88,8 +97,13 @@ export const Booking = () => {
       className="absolute top-[50%] left-[66%] translate-y-[-50%] translate-x-[-50%] p-2"
       style={{ background: "linear-gradient(45deg, #1f378f, transparent)" }}
     >
+      <Toast ref={toast} position="top-left"/>
       <div className="flex justify-center items-center">
-      <h1><b className="text-[1.4rem] text-[white]">HELLO, BOOK YOUR APPOINTMENT</b></h1>
+        <h1>
+          <b className="text-[1.4rem] text-[white]">
+            HELLO, BOOK YOUR APPOINTMENT
+          </b>
+        </h1>
       </div>
       <div className="flex justify-center">
         <form action="" className="mx-4 mt-2">
@@ -101,7 +115,6 @@ export const Booking = () => {
             placeholder="Consultancy Department"
             className="w-full md:w-14rem"
           />
-          
 
           <Dropdown
             value={doctor}
@@ -111,14 +124,12 @@ export const Booking = () => {
             placeholder="Select a doctor"
             className="w-full md:w-14rem my-2"
           />
-      
 
           <SelectButton
             value={state}
             onChange={(e) => seState(e.target.value)}
             options={options}
           />
-         
 
           <Dropdown
             value={location}
@@ -128,7 +139,6 @@ export const Booking = () => {
             placeholder="Choose a Location"
             className="w-full md:w-14rem my-2"
           />
-          
 
           <div className="my-2 input-details">
             <InputText
@@ -138,7 +148,6 @@ export const Booking = () => {
               onChange={(e) => setFirstname(e.target.value)}
             />
           </div>
-       
 
           <div className="my-2 input-details">
             <InputText
@@ -148,7 +157,6 @@ export const Booking = () => {
               onChange={(e) => setLastname(e.target.value)}
             />
           </div>
-         
 
           <div div className="my-2 input-details">
             <InputText
@@ -158,7 +166,6 @@ export const Booking = () => {
               onChange={(e) => setPhone(e.target.value)}
             />
           </div>
-       
 
           <div div className="my-2 input-details">
             <InputText
@@ -168,10 +175,8 @@ export const Booking = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-
-          
         </form>
-       
+
         <div className="mt-2 mx-2 ">
           <CalendarForm date={date} setDate={setDate} />
           <div className="mt-1 mb-1 time-div">

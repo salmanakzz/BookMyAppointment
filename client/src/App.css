@@ -53,6 +53,10 @@
   color: white !important;
 }
 
+.p-dropdown , .input-details > input{
+    width: 247px !important;
+}
+
 input[type="text"]::placeholder {
   color: white;
 }
