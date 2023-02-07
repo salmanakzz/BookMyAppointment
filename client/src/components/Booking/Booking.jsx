@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { CalendarForm } from "../Calender/Calendar";
-import { useForm } from "react-hook-form";
 import { bookTime } from "../../api/bookTime";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Calendar } from "primereact/calendar";
@@ -8,7 +7,6 @@ import { Dropdown } from "primereact/dropdown";
 import { SelectButton } from "primereact/selectbutton";
 import { InputText } from "primereact/inputtext";
 
-import { InputNumber } from "primereact/inputnumber";
 
 export const Booking = () => {
   const [consultancyDep, setConsultancyDep] = useState("");
@@ -59,7 +57,7 @@ export const Booking = () => {
       time: time2,
       notes,
     };
-    console.log(data);
+    
     bookTime(data).then((res) => {
       console.log(res);
     });
