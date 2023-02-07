@@ -12,12 +12,18 @@
   padding: 0 !important;
 }
 
+.p-datepicker {
+  padding: 0 !important;
+}
+
 .p-datepicker .p-datepicker-header {
   padding: 0 !important;
   background: #4f46e5 !important;
+  height: 34px !important;
 }
 
-.p-datepicker .p-timepicker {
+.p-datepicker .p-timepicker,
+.p-datepicker table th {
   padding: 0 !important;
 }
 
@@ -26,8 +32,8 @@
 }
 
 .p-calendar-timeonly {
-  width: 200px;
-  height: 40px;
+  width: 184px;
+  height: 32px;
 }
 
 .input-details .p-inputtext {
@@ -41,7 +47,9 @@
 }
 
 .p-dropdown,
-.input-details .p-inputtext, .p-calendar .p-inputtext , .time-div{
+.input-details .p-inputtext,
+.p-calendar .p-inputtext,
+.time-div {
   background: #4f46e5 !important;
   border: 0 !important;
   border-radius: 0 !important;
@@ -49,12 +57,19 @@
 }
 
 .p-dropdown .p-dropdown-label.p-placeholder,
-.p-dropdown .p-dropdown-trigger, .p-dropdown .p-dropdown-label {
+.p-dropdown .p-dropdown-trigger,
+.p-dropdown .p-dropdown-label {
   color: white !important;
 }
 
-.p-dropdown , .input-details > input{
-    width: 247px !important;
+.p-dropdown,
+.input-details > input {
+  width: 247px !important;
+}
+
+.p-buttonset .p-button:first-of-type,
+.p-buttonset .p-button:last-of-type {
+  height: 33px !important;
 }
 
 input[type="text"]::placeholder {
@@ -65,4 +80,24 @@ input[type="tel"]::placeholder {
 }
 input[type="email"]::placeholder {
   color: white;
+}
+
+img {
+  max-width: -webkit-fill-available !important;
+}
+
+@media only screen and (max-width: 822px) {
+  .form-main {
+    right: auto !important;
+  }
+}
+
+@media only screen and (max-width: 622px) {
+  .flex {
+    display: contents;
+  }
+  .form-main{
+    left: 50%;
+    transform: translate(-50%);;
+  }
 }

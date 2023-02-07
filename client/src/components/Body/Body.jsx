@@ -5,7 +5,7 @@ import { Booking } from "../Booking/Booking";
 
 export const Body = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center body-block">
       <Image src={image} alt="BackgroundImage" width="921" className="mr-[21rem]"/>
       <Booking />
     </div>

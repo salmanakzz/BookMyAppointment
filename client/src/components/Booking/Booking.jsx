@@ -6,7 +6,6 @@ import { Calendar } from "primereact/calendar";
 import { Dropdown } from "primereact/dropdown";
 import { SelectButton } from "primereact/selectbutton";
 import { InputText } from "primereact/inputtext";
-import { Message } from "primereact/message";
 import { Toast } from 'primereact/toast';
 
 export const Booking = () => {
@@ -94,18 +93,19 @@ export const Booking = () => {
 
   return (
     <div
-      className="absolute top-[50%] left-[66%] translate-y-[-50%] translate-x-[-50%] p-2"
+      className="form-main absolute mb-[2.1rem] right-[15%]"
+      // className="absolute top-[55%] left-[66%] translate-y-[-50%] translate-x-[-50%] p-2"
       style={{ background: "linear-gradient(45deg, #1f378f, transparent)" }}
     >
       <Toast ref={toast} position="top-left"/>
       <div className="flex justify-center items-center">
-        <h1>
+        <h1 className="mt-[1rem]">
           <b className="text-[1.4rem] text-[white]">
             HELLO, BOOK YOUR APPOINTMENT
           </b>
         </h1>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center form-main2">
         <form action="" className="mx-4 mt-2">
           <Dropdown
             value={consultancyDep}
@@ -115,6 +115,7 @@ export const Booking = () => {
             placeholder="Consultancy Department"
             className="w-full md:w-14rem"
           />
+          <br />
 
           <Dropdown
             value={doctor}
@@ -205,7 +206,7 @@ export const Booking = () => {
         <button
           type="submit"
           onClick={onSubmit}
-          className="bg-[white] w-[100%] p-2 mb-2"
+          className="bg-[white] w-[100%] p-1 mx-[.5rem] mb-2"
         >
           Confirm Your Booking
         </button>
